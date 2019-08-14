@@ -31,16 +31,16 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="Hkm-XL-c3o">
                                 <rect key="frame" x="10" y="424" width="300" height="134"/>
                                 <subviews>
-                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYe-DL-4aA">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYe-DL-4aA">
                                         <rect key="frame" x="0.0" y="0.0" width="73" height="134"/>
                                         <color key="backgroundColor" red="0.80773574859426389" green="1" blue="0.74287473495172796" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="1"/>
                                         <connections>
-                                            <action selector="answerButtom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ahU-SP-0mz"/>
+                                            <action selector="button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AIK-Eu-dE8"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lZ-MF-wmA">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lZ-MF-wmA">
                                         <rect key="frame" x="76" y="0.0" width="72.5" height="134"/>
                                         <color key="backgroundColor" red="0.95798184515840723" green="0.48969439306122331" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -48,25 +48,25 @@
                                             <color key="titleColor" red="0.22597949000000001" green="1" blue="0.23378109129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
-                                            <action selector="answerButtom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J4E-5l-pQ6"/>
+                                            <action selector="button2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1Nk-bd-9T2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3R4-GK-87i">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3R4-GK-87i">
                                         <rect key="frame" x="151.5" y="0.0" width="73" height="134"/>
                                         <color key="backgroundColor" red="0.29585068838979967" green="0.24488658992447965" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="3"/>
                                         <connections>
-                                            <action selector="answerButtom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uex-2o-4ce"/>
+                                            <action selector="button3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZBo-Ud-nIw"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSm-Ty-xwe">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSm-Ty-xwe">
                                         <rect key="frame" x="227.5" y="0.0" width="72.5" height="134"/>
                                         <color key="backgroundColor" red="1" green="0.018461708577807601" blue="0.22083927960311056" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="4"/>
                                         <connections>
-                                            <action selector="answerButtom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fZW-GX-fpE"/>
+                                            <action selector="button4:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IUl-KN-dYH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -96,6 +96,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="1問目" id="D7Z-cc-tpE"/>
                     <connections>
+                        <outlet property="button" destination="gYe-DL-4aA" id="feV-en-Ojf"/>
+                        <outlet property="button2" destination="8lZ-MF-wmA" id="mW7-A2-Hpe"/>
+                        <outlet property="button3" destination="3R4-GK-87i" id="5LB-g0-EyY"/>
+                        <outlet property="button4" destination="JSm-Ty-xwe" id="r7j-6f-ebW"/>
                         <outlet property="questionView" destination="VFC-Qh-3P2" id="U2l-Jw-hlQ"/>
                         <outlet property="titleQuestion" destination="D7Z-cc-tpE" id="X3G-wo-uaA"/>
                         <segue destination="ctx-F7-s0P" kind="show" identifier="answerResult" id="jTd-Rk-guL"/>
@@ -114,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YKN-gf-rjH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="YKN-gf-rjH">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YKN-gf-rjH" id="qdx-bO-Xie">
