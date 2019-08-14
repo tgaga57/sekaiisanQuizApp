@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--1問目-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="sekaiisannQuizApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,7 +25,6 @@
                                     <constraint firstAttribute="height" constant="195" id="Y6f-hn-Kfl"/>
                                     <constraint firstAttribute="width" constant="320" id="bll-Nd-Kfw"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -95,9 +94,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="D7Z-cc-tpE"/>
+                    <navigationItem key="navigationItem" title="1問目" id="D7Z-cc-tpE"/>
                     <connections>
                         <outlet property="questionView" destination="VFC-Qh-3P2" id="U2l-Jw-hlQ"/>
+                        <outlet property="titleQuestion" destination="D7Z-cc-tpE" id="X3G-wo-uaA"/>
                         <segue destination="ctx-F7-s0P" kind="show" identifier="answerResult" id="jTd-Rk-guL"/>
                     </connections>
                 </viewController>
@@ -105,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="1134.375" y="114.08450704225352"/>
         </scene>
-        <!--Result Table View Controller-->
+        <!--結果一覧-->
         <scene sceneID="12I-YL-a8p">
             <objects>
-                <tableViewController id="ctx-F7-s0P" customClass="ResultTableViewController" customModule="sekaiisannQuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="結果一覧" id="ctx-F7-s0P" customClass="ResultTableViewController" customModule="sekaiisannQuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="bkG-Xg-5uT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
