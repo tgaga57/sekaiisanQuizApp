@@ -15,8 +15,6 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    
     // 問題が何問目かを表示
     @IBOutlet weak var titleQuestion: UINavigationItem!
     
@@ -42,8 +40,6 @@ class ViewController: UIViewController {
          "answer": 2, "choise": 2
         ]
     ]
-    
-    
     // 現在の問題番号を格納する変数
     var questionsCount: Int = 1
     // 問題数の管理
@@ -55,7 +51,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         showQuestion()
     }
-    
     // 問題画面から結果の画面に行った時の処理
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "問題へ", style: .plain, target: nil, action: nil)
@@ -66,13 +61,11 @@ class ViewController: UIViewController {
         // 問題を表示する関数 showQuestion() 呼び出し
         showQuestion()
     }
-    
     // 結果の画面から問題の画面にもだった時の処理
     override func viewWillAppear(_ animated: Bool) {
         // naviationTitle「一問目」に戻す
         titleQuestion.title = "\(questionsCount)番目"
     }
-    
     // 回答を確認する関数
     func checkAnswer(yourAnswer: Int) {
         // 回答があっているか確認
@@ -89,8 +82,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    
     // 問題を表示する
     func showQuestion() {
         // currentQuestionNumの問題を取得
@@ -125,7 +116,6 @@ class ViewController: UIViewController {
                 button4.isHidden = true
             }
         }
-        
     }
     // セグエ実行前の処理
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -134,7 +124,6 @@ class ViewController: UIViewController {
         }
         vc.result = result
     }
-    
     // 正解時のアラートを表示する関数
     func correctAlert() {
         // アラートの作成
@@ -161,7 +150,6 @@ class ViewController: UIViewController {
         alert.addAction(ok)
         present(alert, animated: true)
     }
-    
     // 不正解のアラートを表示する関数
     func falseAlert() {
         // アラートの作成
