@@ -5,19 +5,11 @@
 //  Created by 志賀大河 on 2019/08/13.
 //  Copyright © 2019 Taigashiga. All rights reserved.
 //
-
-//StackViewを利用して4択、3択、2択の問題形式に併せて選択肢のボタンの表示調節を行うこと。
-//正解の選択肢ボタンを押した場合、正解のアラートを出し、次の問題へ遷移させること。
-//不正解の選択肢ボタンを押した場合、不正解のアラートを出して、次に進むかやり直すかの選択肢を与えること。
-//３問全て終えたら結果画面に遷移し、各問の正誤結果が示されること。なお、不正解の場合もやり直して正解になった問題は正解として表示されるようにすること。
-//結果画面から戻るとまた１問目に戻り、再び３問回答でき、回答後の結果画面では再度回答した３問分の正誤のみが表示されること。
-
 import UIKit
 
 class ViewController: UIViewController {
     // 問題が何問目かを表示
     @IBOutlet weak var titleQuestion: UINavigationItem!
-    
     // 問題を表示する
     @IBOutlet weak var questionView: UITextView!
     // 回答のボタン
@@ -27,7 +19,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var button4: UIButton!
     // 回答結果の配列
     var result: [String] = []
-    
     // 問題を管理
     let questions: [[String: Any]] = [
         ["title": "第1問", "question": "日本の世界遺産『富士山－信仰の対象と芸術の源泉』は、2013年に（ ）として世界遺産登録されました。\n1. 文化遺産\n2. 自然遺産\n3. 山岳遺産\n4. 伝統遺産",
@@ -44,8 +35,6 @@ class ViewController: UIViewController {
     var questionsCount: Int = 1
     // 問題数の管理
     var currentQuestionNum: Int = 0
-    // 総問題数
-    var questionCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +43,7 @@ class ViewController: UIViewController {
     // 問題画面から結果の画面に行った時の処理
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "問題へ", style: .plain, target: nil, action: nil)
+        questionView.isUserInteractionEnabled = false
         // カウント初期化
         currentQuestionNum = 0
         // リスト初期化
@@ -61,16 +51,10 @@ class ViewController: UIViewController {
         // 問題を表示する関数 showQuestion() 呼び出し
         showQuestion()
     }
-    // 結果の画面から問題の画面にもだった時の処理
-    override func viewWillAppear(_ animated: Bool) {
-        // naviationTitle「一問目」に戻す
-        titleQuestion.title = "\(questionsCount)番目"
-    }
     // 回答を確認する関数
     func checkAnswer(yourAnswer: Int) {
         // 回答があっているか確認
         let question = questions[currentQuestionNum]
-        
         if let ans = question["answer"] as? Int {
             // 選んだ答えと答えがあっているか
             if yourAnswer == ans{
@@ -86,7 +70,6 @@ class ViewController: UIViewController {
     func showQuestion() {
         // currentQuestionNumの問題を取得
         let question = questions[currentQuestionNum]
-        
         //        タイトルを取り出す
         if let title = question["title"] as? String {
             self.navigationItem.title = title
@@ -102,18 +85,10 @@ class ViewController: UIViewController {
                 button2.isHidden = false
                 button3.isHidden = false
                 button4.isHidden = false
-                
             } else if choise == 3 {
-                button.isHidden = false
-                button2.isHidden = false
-                button3.isHidden = false
                 button4.isHidden = true
-                
             } else if choise == 2 {
-                button.isHidden = false
-                button2.isHidden = false
                 button3.isHidden = true
-                button4.isHidden = true
             }
         }
     }
@@ -136,9 +111,7 @@ class ViewController: UIViewController {
             // 結果リストに追加
             let num = self.currentQuestionNum
             self.result.append("第\(num)問目: ◎")
-            
             if self.currentQuestionNum >= self.questions.count {
-                print(self.currentQuestionNum)
                 // 最後の画面のとき画面遷移
                 self.performSegue(withIdentifier: "answerResult", sender: nil)
             } else {
@@ -146,7 +119,6 @@ class ViewController: UIViewController {
                 self.showQuestion()
             }
         })
-        
         alert.addAction(ok)
         present(alert, animated: true)
     }
@@ -176,7 +148,6 @@ class ViewController: UIViewController {
         // 作成したアラートにボタンを追加
         alert.addAction(oneMore)
         alert.addAction(ok)
-        
         // アラートを表示する
         present(alert, animated: true, completion: nil)
     }
