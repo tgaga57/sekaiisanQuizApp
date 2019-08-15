@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         showQuestion()
     }
+    
     // 問題画面から結果の画面に行った時の処理
     override func viewWillDisappear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "問題へ", style: .plain, target: nil, action: nil)
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
         // 問題を表示する関数 showQuestion() 呼び出し
         showQuestion()
     }
+    
     // 回答を確認する関数
     func checkAnswer(yourAnswer: Int) {
         // 回答があっているか確認
@@ -66,11 +68,12 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     // 問題を表示する
     func showQuestion() {
         // currentQuestionNumの問題を取得
         let question = questions[currentQuestionNum]
-        //        タイトルを取り出す
+        // タイトルを取り出す
         if let title = question["title"] as? String {
             self.navigationItem.title = title
         }
@@ -81,8 +84,6 @@ class ViewController: UIViewController {
         // 何択の問題によって表示を変える
         if let choise = question["choise"] as? Int {
             if choise == 4 {
-                button.isHidden = false
-                button2.isHidden = false
                 button3.isHidden = false
                 button4.isHidden = false
             } else if choise == 3 {
@@ -92,6 +93,7 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     // セグエ実行前の処理
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "answerResult", let vc = segue.destination as? ResultTableViewController else {
